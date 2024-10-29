@@ -5,11 +5,12 @@ increase = 0.05  # Ежемесячный рост цен
 
 # TODO Посчитайте количество  месяцев, которое можно протянуть без долгов
 count_month = 0
-while money_capital >= 0:
 
-    money_capital += salary
+while True:
+    money_capital += salary - spend
     spend += spend * increase
-    money_capital -= spend
+    if money_capital < 0:
+        break
     count_month += 1
 
 print("Количество месяцев, которое можно протянуть без долгов:", count_month)
